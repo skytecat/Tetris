@@ -1,7 +1,7 @@
 CC=gcc
 FLAGS  = -lncurses -Wall -Werror -Wextra -std=c11
-SOURCE = brick_game/tetris/*.c gui/cli/front.c
-TEST_SOURCE = brick_game/tetris/back.c gui/cli/front.c
+SOURCE = backend/*.c frontend/front.c
+TEST_SOURCE = brick_game/tetris/main.c gui/cli/front.c
 
 ifeq ($(shell uname -s),Linux)
 	LIBS=-lm -lrt -lpthread -lcheck -lsubunit
