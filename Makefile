@@ -1,7 +1,7 @@
 CC=gcc
 FLAGS  = -lncurses -Wall -Werror -Wextra -std=c11
 SOURCE = backend/*.c frontend/front.c
-TEST_SOURCE = brick_game/tetris/main.c gui/cli/front.c
+TEST_SOURCE = backend/main.c frontend/front.c
 
 ifeq ($(shell uname -s),Linux)
 	LIBS=-lm -lrt -lpthread -lcheck -lsubunit
@@ -35,7 +35,7 @@ clean:
 	rm -rf *.gcov
 
 dvi:
-	open Readme.md
+	open README.md
 
 dist:clean
 	mkdir tetris_game
