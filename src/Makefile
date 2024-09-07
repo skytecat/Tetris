@@ -35,16 +35,16 @@ clean:
 	rm -rf *.gcov
 
 dvi:
-	open README.md
+	open ../README.md
 
 dist:clean
 	mkdir tetris_game
 	mkdir tetris_game/src
-	cp -R brick_game tetris_game/src
-	cp -R gui tetris_game/src
-	cp -R diagram.png tetris_game/src
+	cp -R backend tetris_game/src
+	cp -R frontend tetris_game/src
+	cp -R ../msc/images/diagram.png tetris_game/src
 	cp -R Makefile tetris_game/src
-	cp -R Readme.md tetris_game/src
+	cp -R ../Readme.md tetris_game/src
 	tar cvzf tetris_game.tgz tetris_game/
 	rm -rf tetris_game
 
@@ -67,5 +67,5 @@ brew:
 	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
 
 clang:
-	clang-format -style=Google -i $(SOURCE) brick_game/tetris/*.h gui/cli/*.h
+	clang-format -style=Google -i $(SOURCE) backend/*.h frontend/*.h
 	clang-format -style=Google -i  tests/*.c tests/*.h
