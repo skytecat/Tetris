@@ -34,20 +34,6 @@ clean:
 	rm -rf a.out
 	rm -rf *.gcov
 
-dvi:
-	open ../README.md
-
-dist:clean
-	mkdir tetris_game
-	mkdir tetris_game/src
-	cp -R backend tetris_game/src
-	cp -R frontend tetris_game/src
-	cp -R ../msc/images/diagram.png tetris_game/src
-	cp -R Makefile tetris_game/src
-	cp -R ../Readme.md tetris_game/src
-	tar cvzf tetris_game.tgz tetris_game/
-	rm -rf tetris_game
-
 test: clean
 	$(CC) $(FLAGS) --coverage tests/tests.c $(TEST_SOURCE) $(LIBS) -o s21_test
 	./s21_test
@@ -65,7 +51,3 @@ lcov:
 brew:
 	cd
 	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
-
-clang:
-	clang-format -style=Google -i $(SOURCE) backend/*.h frontend/*.h
-	clang-format -style=Google -i  tests/*.c tests/*.h
