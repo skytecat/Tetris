@@ -1,8 +1,5 @@
 #include "tests.h"
 
-#include "../brick_game/tetris/tetris.h"
-#include "../gui/cli/front.h"
-
 START_TEST(test_clear_field) {
   GameInfo_t tetris;
 
