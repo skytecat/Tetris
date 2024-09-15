@@ -57,7 +57,7 @@ typedef struct {
   int speed;
 } GameInfo_t;
 
-#include "../../gui/cli/front.h"
+#include "../frontend/front.h"
 
 int random_figure();
 void fill_figures(GameInfo_t *info);
