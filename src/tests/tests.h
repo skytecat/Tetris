@@ -2,8 +2,8 @@
 #define _TESTS_H
 #include <check.h>
 
-#include "../brick_game/tetris/tetris.h"
-#include "../gui/cli/front.h"
+#include "../backend/tetris.h"
+#include "../frontend/front.h"
 
 Suite *s21_game_suite(void);
 
