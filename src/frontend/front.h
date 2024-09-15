@@ -1,7 +1,7 @@
 #ifndef _TETRIS_FRONT_H_
 #define _TETRIS_FRONT_H_
 
-#include "../../brick_game/tetris/tetris.h"
+#include "../backend/tetris.h"
 
 void print_start_image(WINDOW *start_window);
 void start_window(tetris_state *state);
