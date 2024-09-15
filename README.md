@@ -15,7 +15,7 @@
     - [Подсчет очков и рекорд в игре](#подсчет-очков-и-рекорд-в-игре)
     - [Механика уровней](#механика-уровней)
     - [Управление](#управление)
-  - [Инструкции по запуску](#инструкции-по-запуску)
+  - [Сборка и тестирование](#сборка-и-тестирование)
 
 ## Введение
 
@@ -92,70 +92,22 @@
   - **Стрелка вниз** — ускорение падения фигуры,
   - **Пробел** — вращение фигуры.
 
-## Инструкции по запуску
-
 ## Сборка и тестирование
-### Установка приложения
 
-Сборка осуществляется с помощью Makefile следующими целями:
+Сборка осуществляется с помощью Makefile,который находится в директории `src`. Функции для вычислений покрыты unit-тестами.
 
-`install` - установить приложение в директорию выше.
+**Цели в Makefile:**
 
-`uninstall` - удалить приложение из директории выше.
+`install` - установить и запустить приложение
 
-`dvi` - открыть документацию. 
+`uninstall` - удалить приложение
 
-### Тестирование
+`clean` - очистить каталог от всех файлов, полученных в результате компиляции
 
-Функции для вычислений покрыты unit-тестами.
+`brew` - установить Homebrew
 
-`test` - запустить тесты функций.
+`lcov` - установить lcov
 
-`leaks` - проверить тестируемый код на утечки.
+`test` - запустить тесты функций
 
-`gcov_report` - посмотреть покрытие тестами кода.
-
-
-- Сборка программы должна быть настроена с помощью Makefile со стандартным набором целей для GNU-программ: all, install, uninstall, clean, dvi, dist, test, gcov_report. Установка должна вестись в любой другой произвольный каталог.
-
-all: install
-
-install:
-	$(CC) $(FLAGS) $(SOURCE) -o tetris
-	./tetris
-
-uninstall:
-	rm -rf tetris
-
-clean:
-	rm -rf s21_test
-	rm -rf *.a
-	rm -rf *.gcno
-	rm -rf *.gcda *.o
-	rm -rf *.html
-	rm -rf *.info
-	rm -rf *.css
-	rm -rf report
-	rm -rf report_files
-	rm -rf s21_test.dSYM
-	rm -rf a.out
-	rm -rf *.gcov
-
-test: clean
-	$(CC) $(FLAGS) --coverage tests/tests.c $(TEST_SOURCE) $(LIBS) -o s21_test
-	./s21_test
-
-gcov_report: clean
-	$(CC) $(FLAGS) --coverage $(TEST_SOURCE) tests/tests.c -o s21_test $(LIBS)
-	./s21_test
-	lcov -t "coverage" -o s21_test.info -c -d .
-	genhtml -o report s21_test.info
-	open ./report/index.html
-
-lcov:
-	brew install lcov
-
-brew:
-	cd
-	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
-
+`gcov_report` - посмотреть покрытие тестами кода
