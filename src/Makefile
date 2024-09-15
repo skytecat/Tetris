@@ -33,6 +33,7 @@ clean:
 	rm -rf s21_test.dSYM
 	rm -rf a.out
 	rm -rf *.gcov
+	rm -rf tetris
 
 test: clean
 	$(CC) $(FLAGS) --coverage tests/tests.c $(TEST_SOURCE) $(LIBS) -o s21_test
